@@ -15,7 +15,6 @@
     <title>GitHub User</title>
   </head>
   <body>
-    <!-- Loader -->
     <section>
       <div class="loaderContainer">
         <div class="loadingAnimationContainer">
@@ -23,7 +22,7 @@
         </div>
       </div>
     </section>
-    <!-- Search Section -->
+
     <section>
       <div class="container searchContainer">
         <div class="row d-flex w-100 g-0">
@@ -31,14 +30,13 @@
             <input type="text" class="searchBar" placeholder="github username here" />
           </div>
           <div class="col-md-1 col-1">
-            <button class="searchButton" onclick="search(),repos()" style="height:100%"><svg class="svg-icon search-icon" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7" style="height:20px"><g class="search-path" fill="none" stroke="#848F91"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></button>
+            <button class="searchButton" onclick="search()" style="height:100%"><svg class="svg-icon search-icon" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7" style="height:20px"><g class="search-path" fill="none" stroke="#848F91"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Profile Details Section -->
-    <section>
+    <section class="mb-3">
       <div class="container">
         <div class="row">
           <div class="col-md-2 profileImgContainer">
@@ -51,11 +49,10 @@
       </div>
     </section>
 
-    <!-- Repositories Section -->
     <section>
       <div class="container">
         <div class="row g-3">
-        <div class="col-12 col-md-4"><h3 id="repositoryHeading">Repositories</h3></div>
+        <div class="col-12 col-md-4 repoNumContainer"><h3 id="repositoryHeading">Repositories </h3><h3 class="numRepo"> : NA</h3></div>
         <div class="col-12 col-md-4">
           <div class="row perPageRow w-100 g-0">
             <div class="col-6"><input type="number" id="perPageValue" min="1" max="100" placeholder="repo per page"></div>
@@ -66,10 +63,12 @@
           <div class="row w-100 g-0 d-flex justify-content-center">
             <button class="col-4" onclick="previous()" id="prevBtn">Previous</button>
             <button class="col-4" onclick="next()" id="nextBtn">Next</button>
+            <div class="col-4 pageNum"></div>
           </div>
         </div>
       </div>
     </section>
+    
     <section>
       <div class="container-fluid">
         <div class="row reposContainer"></div>

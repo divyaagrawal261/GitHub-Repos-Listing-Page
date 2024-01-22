@@ -20,6 +20,9 @@ body{
 }
 .translator{
     font-family: "Poppins";
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-underline-offset: 5px;
 }
 .shareTech{
     font-family:  "Share Tech", sans-serif;
@@ -57,18 +60,6 @@ body{
     max-width: 100%;
     min-height: 150px;
     max-height: 200px;
-    border-radius: 10px;
-}
-#repositoryHeading{
-    color: white;
-    font-weight: 500;
-    font-family:  Heading;
-    background-color: rgba(0, 0, 0, 0.774);
-    backdrop-filter: blur(50px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
     border-radius: 10px;
 }
 .reposContainer{
@@ -116,7 +107,7 @@ body{
     background-color: rgba(0, 0, 0, 0.384);
     border: none;
 }
-button{
+button,.pageNum{
     background-image: linear-gradient(to right,rgba(255, 255, 255, 0.705) 50%,rgba(0, 0, 0, 0.795) 50%);
     background-size: 200% 200%;
     background-position: right top;
@@ -173,6 +164,19 @@ align-items: center;
     border: 5px solid #ff0000;
     box-shadow: 0px 0px 10px 10px #ff0000;
     cursor: none;
+}
+.repoNumContainer{
+    display: flex;
+    color: white;
+    font-weight: 500;
+    font-family:  Heading;
+    background-color: rgba(0, 0, 0, 0.774);
+    backdrop-filter: blur(50px);
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: inherit;
+    border-radius: 10px;
 }
 @keyframes spin {
     0%{

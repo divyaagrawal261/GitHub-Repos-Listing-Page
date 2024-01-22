@@ -31,7 +31,6 @@ export const fetchRepos=async(req,res)=>{
 
     if(linkHeader)
     {
-      nextUrl=((linkHeader.split(",")[0]).split(";")[0]).slice(1,-1);
       lastUrl=((linkHeader.split(",")[1]).split(";")[0]).slice(2,-1);
       
       var totalPages=lastUrl.split("&page=")[1];

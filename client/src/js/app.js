@@ -17,6 +17,8 @@ function search()
     {
         document.querySelector(".personalInfoContainer").innerHTML=null
         document.querySelector(".socialInfoContainer").innerHTML=null
+        document.querySelector(".numRepo").innerHTML=null;
+        document.querySelector(".numRepo").innerHTML=`: ${data.public_repos}`
         const profileImg=document.querySelector(".profileImg");
         profileImg.src=data.avatar_url;
         var bio=data.bio;
@@ -30,7 +32,7 @@ function search()
         personalInfo.innerHTML=`<div class="row g-0">
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">${data.name}</h5>
+            <a class="card-title" href=${data.html_url} style="font-size:1.25rem; text-underline-offset: 5px;">${data.name}</a>
             <h6>${location}</h6>
             <p class="card-text shareTech">
               ${bio}
@@ -88,11 +90,11 @@ function repos(perPage,page,username)
     
     cardContainer.className="col-12 col-md-6 col-lg-4 col-xl-3 cardContainer";
     cardContainer.innerHTML=`
-    <div class="card mb-3 w-100" onclick=${repo.html_url} >
+    <div class="card mb-3 w-100">
       <div class="row g-0">
         <div class="col-md-12">
           <div class="card-body">
-            <h5 class="card-title translator">${repo.name}</h5>
+            <a class="card-title translator" href=${repo.html_url}>${repo.name}</a>
             <p class="card-text shareTech">${repo.description}</p>
             <div class="card-text Poppins">
               ${topicHTML}
@@ -103,6 +105,7 @@ function repos(perPage,page,username)
     </div>`
     document.querySelector(".reposContainer").append(cardContainer);
   })
+  document.querySelector(".pageNum").innerHTML=`${currentPage}/${totalPages}`
 }).finally(()=>hideLoader())
 }
 
@@ -124,6 +127,7 @@ function updatePerPage()
 {
   perPage=document.querySelector("#perPageValue").value;
   currentPage=1;
+  check();
   repos(perPage,currentPage,username);
 }
 function check()
