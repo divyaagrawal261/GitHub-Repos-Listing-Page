@@ -7,7 +7,7 @@ function search()
     showLoader();
     username=document.querySelector(".searchBar").value;
     repos(perPage,currentPage,username)
-    fetch("http://localhost:7474/username",{
+    fetch("https://github-repos-listing-page.onrender.com/username",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -68,7 +68,7 @@ function repos(perPage,page,username)
   showLoader();
   check();
   document.querySelector(".reposContainer").innerHTML=null
-  fetch("http://localhost:7474/username/repos",{
+  fetch("https://github-repos-listing-page.onrender.com/username/repos",{
     method:"POST",
     headers:{
         "Content-Type":"application/json"
