@@ -53,7 +53,11 @@ npm run dev
 ```bash
 cd ..
 cd client
+cd src
+cd js
 ```
+### Open app.js and make the following changes
+Replace `https://github-repos-listing-page.onrender.com` with `http://localhost:7474`
 
 ### Open index.html by double-clicking it
 
