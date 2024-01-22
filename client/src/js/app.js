@@ -4,6 +4,7 @@ var perPage=10;
 var totalPages;
 function search()
 {
+    showLoader();
     username=document.querySelector(".searchBar").value;
     repos(perPage,currentPage,username)
     fetch("http://localhost:7474/username",{
@@ -58,14 +59,12 @@ function search()
 
       document.querySelector(".personalInfoContainer").append(personalInfo);
       document.querySelector(".socialInfoContainer").append(socialCard);
-    })
+    }).finally(()=>hideLoader())
 }
 function repos(perPage,page,username)
 {
-  if(currentPage==1)
-  {
-    document.querySelector("#prevBtn").disabled=true;
-  }
+  showLoader();
+  check();
   document.querySelector(".reposContainer").innerHTML=null
   fetch("http://localhost:7474/username/repos",{
     method:"POST",
@@ -89,7 +88,7 @@ function repos(perPage,page,username)
     
     cardContainer.className="col-12 col-md-6 col-lg-4 col-xl-3 cardContainer";
     cardContainer.innerHTML=`
-    <div class="card mb-3 w-100">
+    <div class="card mb-3 w-100" onclick=${repo.html_url} >
       <div class="row g-0">
         <div class="col-md-12">
           <div class="card-body">
@@ -104,7 +103,7 @@ function repos(perPage,page,username)
     </div>`
     document.querySelector(".reposContainer").append(cardContainer);
   })
-})
+}).finally(()=>hideLoader())
 }
 
 function next()
@@ -145,4 +144,12 @@ function check()
   {
     document.querySelector("#prevBtn").disabled=false;
   }
+}
+function showLoader()
+{
+  document.querySelector(".loaderContainer").style.display="block";
+}
+function hideLoader()
+{
+  document.querySelector(".loaderContainer").style.display="none";
 }
